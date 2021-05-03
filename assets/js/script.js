@@ -6,6 +6,13 @@ var taskFormHandler = function(event) { //i don't understand the event being pla
     event.preventDefault();
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
+
+    // check if input vlaues are empty strings
+    if (!taskNameInput || !taskTypeInput) {
+        alert("Thou must fill out the task form!");
+        return false; //**** What is this return false doing?
+    }
+    formEl.reset();
     
     //package up data as an object
     var taskDataObj = {
